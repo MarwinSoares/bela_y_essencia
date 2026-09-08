@@ -231,58 +231,6 @@
     <p data-template-id="footer-text" class="canva-text text-xs tracking-wide text-[#806c61]" style="color: rgb(128, 108, 97); font-weight: 700; font-style: normal; font-size: 16px;">ATELIER LUMIÈRE · ESTÉTICA &amp; COSMETOLOGIA</p>
    </footer><a href="#agendamento" data-template-id="mobile-cta" class="canva-button mobile-cta fixed z-50 bottom-4 left-4 right-4 justify-center rounded-full py-4 font-bold shadow-2xl no-underline md:hidden" style="background: rgb(65, 54, 49); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Agendar avaliação</a>
   </div>
-  <script>
-    const form = document.getElementById('booking-form');
-    const status = document.getElementById('form-status');
-    const submitButton = document.getElementById('submit-button');
-    const successState = document.getElementById('success-state');
-    const newBooking = document.getElementById('new-booking');
-
-    const dataHandler = { onDataChanged() {} };
-
-    async function initializeSheet() {
-      const result = await window.dataSdk.init(dataHandler);
-      if (!result.isOk) status.textContent = 'Não foi possível preparar o agendamento. Tente novamente em instantes.';
-    }
-
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-
-      submitButton.disabled = true;
-      status.textContent = 'Enviando seu pedido de agendamento...';
-
-      const formData = new FormData(form);
-      const record = {
-        name: formData.get('name').trim(),
-        phone: formData.get('phone').trim(),
-        email: formData.get('email').trim(),
-        service: formData.get('service'),
-        date: formData.get('date'),
-        time: formData.get('time'),
-        notes: formData.get('notes').trim()
-      };
-
-      const result = await window.dataSdk.create(record);
-      submitButton.disabled = false;
-
-      if (result.isOk) {
-        form.reset();
-        form.classList.add('hidden');
-        successState.classList.remove('hidden');
-        status.textContent = '';
-      } else {
-        status.textContent = 'Não conseguimos enviar agora. Revise os dados e tente novamente.';
-      }
-    });
-
-    newBooking.addEventListener('click', () => {
-      successState.classList.add('hidden');
-      form.classList.remove('hidden');
-      document.getElementById('name').focus();
-    });
-
-    initializeSheet();
-  </script>
+  <script src="script/index.js"></script>
  
 </body></html>
