@@ -1,0 +1,53 @@
+CREATE DATABASE estetica;
+USE estetica;
+
+CREATE TABLE usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    localizacao VARCHAR(255),
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    tipo_usuario ENUM('cliente', 'admin') NOT NULL DEFAULT 'cliente',
+    status ENUM('ativo', 'inativo') NOT NULL DEFAULT 'ativo',
+    data_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE servicos (
+    id_servico INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    duracao_minutos INT NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    status ENUM('ativo', 'inativo') NOT NULL DEFAULT 'ativo'
+);
+CREATE TABLE agendamentos (
+    id_agendamento INT AUTO_INCREMENT PRIMARY KEY,
+
+    id_usuario INT NOT NULL,
+    id_servico INT NOT NULL,
+
+    data_agendamento DATE NOT NULL,
+    hora_inicio TIME NOT NULL,
+    hora_fim TIME NOT NULL,
+
+    valor DECIMAL(10,2) NOT NULL,
+
+    status ENUM(
+        'agendado',
+        'confirmado',
+        'concluido',
+        'cancelado'
+    ) NOT NULL DEFAULT 'agendado',
+
+    observacao TEXT,
+
+    data_criacao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_agendamento_usuario
+        FOREIGN KEY (id_usuario)
+        REFERENCES usuarios(id_usuario),
+
+    CONSTRAINT fk_agendamento_servico
+        FOREIGN KEY (id_servico)
+        REFERENCES servicos(id_servico)
+);
