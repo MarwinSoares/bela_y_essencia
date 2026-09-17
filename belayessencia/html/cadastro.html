@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bela Y Essência | Cadastro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/auth.css">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" defer></script>
+  <script src="../script/auth.js" defer></script>
+</head>
+<body>
+  <div class="auth-shell">
+    <header class="auth-header" aria-label="Cabeçalho principal">
+      <a class="brand-link" href="index.html" aria-label="Bela Y Essência - início">
+        <img src="../imagens/Logo.png" alt="Bela Y Essência">
+      </a>
+      <nav class="auth-nav" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="agendamento.html">Agendar</a>
+        <a class="nav-action" href="login.html">Entrar</a>
+      </nav>
+    </header>
+
+    <main class="auth-main">
+      <section class="auth-layout is-register" aria-labelledby="register-title">
+        <div class="auth-visual">
+          <img src="../imagens/WhatsApp%20Image%202026-09-06%20at%2015.52.46.jpeg" alt="Identidade visual Bela Y Essência">
+          <div class="auth-visual-copy">
+            <p class="eyebrow">Cadastro</p>
+            <h1 id="register-title">Seu espaço de cuidado começa aqui.</h1>
+            <p>Crie seu acesso para agilizar próximos agendamentos e receber um atendimento mais personalizado.</p>
+          </div>
+        </div>
+
+        <div class="auth-panel">
+          <p class="eyebrow">Nova conta</p>
+          <h2>Cadastre-se</h2>
+          <p class="panel-note">Preencha seus dados principais para iniciar seu acesso.</p>
+
+          <form class="auth-form" data-auth-form="register" novalidate>
+            <div class="field-group">
+              <label for="full-name">Nome completo</label>
+              <input id="full-name" name="fullName" class="field-control" type="text" autocomplete="name" placeholder="Seu nome" required>
+            </div>
+
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" class="field-control" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required>
+              </div>
+
+              <div class="field-group">
+                <label for="phone">WhatsApp</label>
+                <input id="phone" name="phone" class="field-control" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-9999" required>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="password">Senha</label>
+                <div class="password-wrap">
+                  <input id="password" name="password" class="field-control" type="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres" minlength="6" required>
+                  <button class="icon-button password-toggle" type="button" aria-label="Mostrar senha" data-toggle-password>
+                    <i data-lucide="eye" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="confirm-password">Confirmar senha</label>
+                <div class="password-wrap">
+                  <input id="confirm-password" name="confirmPassword" class="field-control" type="password" autocomplete="new-password" placeholder="Repita sua senha" minlength="6" required>
+                  <button class="icon-button password-toggle" type="button" aria-label="Mostrar senha" data-toggle-password>
+                    <i data-lucide="eye" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <label class="check-label terms" for="terms">
+              <input id="terms" name="terms" type="checkbox" required>
+              <span>Aceito receber comunicados sobre meus agendamentos.</span>
+            </label>
+
+            <p class="form-status" data-form-status aria-live="polite"></p>
+
+            <button class="primary-action" type="submit">
+              <span>Criar conta</span>
+              <i data-lucide="user-plus" aria-hidden="true"></i>
+            </button>
+          </form>
+
+          <p class="auth-switch">Já tem cadastro? <a href="login.html">Entrar agora</a></p>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

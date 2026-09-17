@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bela Y Essência | Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/auth.css">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" defer></script>
+  <script src="../script/auth.js" defer></script>
+</head>
+<body>
+  <div class="auth-shell">
+    <header class="auth-header" aria-label="Cabeçalho principal">
+      <a class="brand-link" href="index.html" aria-label="Bela Y Essência - início">
+        <img src="../imagens/Logo.png" alt="Bela Y Essência">
+      </a>
+      <nav class="auth-nav" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="agendamento.html">Agendar</a>
+        <a class="nav-action" href="cadastro.html">Criar conta</a>
+      </nav>
+    </header>
+
+    <main class="auth-main">
+      <section class="auth-layout" aria-labelledby="login-title">
+        <div class="auth-visual">
+          <img src="../imagens/WhatsApp%20Image%202026-09-06%20at%2015.52.46.jpeg" alt="Identidade visual Bela Y Essência">
+          <div class="auth-visual-copy">
+            <p class="eyebrow">Área da cliente</p>
+            <h1 id="login-title">Bem-vinda de volta.</h1>
+            <p>Acesse sua conta para acompanhar agendamentos e manter seus dados sempre à mão.</p>
+          </div>
+        </div>
+
+        <div class="auth-panel">
+          <p class="eyebrow">Login</p>
+          <h2>Entre na sua conta</h2>
+          <p class="panel-note">Use o e-mail cadastrado para continuar.</p>
+
+          <form class="auth-form" data-auth-form="login" novalidate>
+            <div class="field-group">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" class="field-control" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required>
+            </div>
+
+            <div class="field-group">
+              <label for="password">Senha</label>
+              <div class="password-wrap">
+                <input id="password" name="password" class="field-control" type="password" autocomplete="current-password" placeholder="Digite sua senha" required>
+                <button class="icon-button password-toggle" type="button" aria-label="Mostrar senha" data-toggle-password>
+                  <i data-lucide="eye" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label class="check-label" for="remember">
+                <input id="remember" name="remember" type="checkbox">
+                <span>Lembrar acesso</span>
+              </label>
+              <a href="cadastro.html">Primeiro acesso?</a>
+            </div>
+
+            <p class="form-status" data-form-status aria-live="polite"></p>
+
+            <button class="primary-action" type="submit">
+              <span>Entrar</span>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
