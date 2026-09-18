@@ -268,48 +268,7 @@ body {
       </div>
      </div>
     </section>
-   <!--
-    
-    <section id="agendamento" class="w-full bg-[#eadbd0] px-5 md:px-10 py-20 md:py-28">
-     <div class="max-w-7xl mx-auto grid lg:grid-cols-[.75fr_1.25fr] gap-12 lg:gap-20">
-      <aside>
-       <p data-template-id="booking-eyebrow" class="canva-text eyebrow" style="color: rgb(181, 138, 93); font-weight: 700; font-style: normal; font-size: 16px;">Agende seu momento</p>
-       <h2 data-template-id="booking-title" class="canva-text serif mt-4 text-[clamp(2.6rem,4.5vw,4.4rem)] leading-[1.05]" style="color: rgb(65, 54, 49); font-weight: 600; font-style: normal; font-size: 24px;">Vamos cuidar de você?</h2>
-       <p data-template-id="booking-description" class="canva-text mt-6 leading-7 text-[#6e5d55]" style="color: rgb(110, 93, 85); font-weight: 400; font-style: normal; font-size: 16px;">Preencha seus dados e nossa equipe entrará em contato para confirmar a disponibilidade do seu horário.</p>
-       <div class="mt-10 space-y-4 text-[#5d4c44]">
-        <p data-template-id="contact-location" class="canva-text" style="color: rgb(93, 76, 68); font-weight: 400; font-style: normal; font-size: 16px;">Rua Esperança 2259 08226-024</p>
-        <p data-template-id="contact-hours" class="canva-text" style="color: rgb(93, 76, 68); font-weight: 400; font-style: normal; font-size: 16px;">Seg a Sex · 9h às 19h | Sáb · 9h às 14h</p>
-        <p data-template-id="contact-phone" class="canva-text font-semibold" style="color: rgb(93, 76, 68); font-weight: 700; font-style: normal; font-size: 16px;">WhatsApp: (11) 97315-8174</p>
-       </div>
-      </aside>
-      <div data-template-id="booking-panel" class="canva-panel rounded-[1.5rem] p-6 md:p-9 shadow-[0_18px_45px_rgba(91,61,45,.10)]" style="background: rgb(255, 253, 250);">
-       <form id="booking-form">
-        <div class="grid md:grid-cols-2 gap-5">
-         <div><label data-template-id="label-name" class="canva-text block mb-2 text-sm font-bold" for="name" style="color: rgb(65, 54, 49); font-weight: 700; font-style: normal; font-size: 16px;">Seu nome</label><input id="name" name="name" required="" class="form-field" type="text" autocomplete="name">
-         </div>
-         <div><label data-template-id="label-phone" class="canva-text block mb-2 text-sm font-bold" for="phone" style="color: rgb(65, 54, 49); font-weight: 700; font-style: normal; font-size: 16px;">Telefone / WhatsApp</label><input id="phone" name="phone" required="" class="form-field" type="tel" autocomplete="tel">
-         </div>
-         <div><label data-template-id="label-email" class="canva-text block mb-2 text-sm font-bold" for="email" style="color: rgb(65, 54, 49); font-weight: 700; font-style: normal; font-size: 16px;">E-mail</label><input id="email" name="email" required="" class="form-field" type="email" autocomplete="email">
-         </div>
-         <div><label data-template-id="label-service" class="canva-text block mb-2 text-sm font-bold" for="service" style="color: rgb(65, 54, 49); font-weight: 700; font-style: normal; font-size: 16px;">Tratamento desejado</label><select id="service" name="service" required="" class="form-field"><option value="">Selecione um serviço</option><option>Botox</option><option>Preenchedores</option><option>Bioestimuladores</option><option>Peeling</option><option>Microagulhamento</option><option>Limpeza de pele</option><option>Capilar</option><option>Enzimas</option><option>Drenagem</option><option>Massagem</option></select>
-         </div>
-         <div><label data-template-id="label-date" class="canva-text block mb-2 text-sm font-bold" for="date" style="color: rgb(65, 54, 49); font-weight: 700; font-style: normal; font-size: 16px;">Data preferida</label><input id="date" name="date" required="" class="form-field" type="date">
-         </div>
-         <div><label data-template-id="label-time" class="canva-text block mb-2 text-sm font-bold" for="time" style="color: rgb(65, 54, 49); font-weight: 700; font-style: normal; font-size: 16px;">Horário preferido</label><input id="time" name="time" required="" class="form-field" type="time">
-         </div>
-        </div>
-        <div class="mt-5"><label data-template-id="label-notes" class="canva-text block mb-2 text-sm font-bold" for="notes" style="color: rgb(65, 54, 49); font-weight: 700; font-style: normal; font-size: 16px;">Observações</label><textarea id="notes" name="notes" rows="4" class="form-field resize-y"></textarea>
-        </div>
-        <p id="form-status" class="status mt-4 text-sm font-semibold" aria-live="polite"></p><button id="submit-button" data-template-id="submit-button" type="submit" class="canva-button mt-2 inline-flex w-full justify-center rounded-full py-4 font-bold transition hover:opacity-85 disabled:opacity-60" style="background: rgb(65, 54, 49); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Enviar pedido de agendamento</button>
-       </form>
-       <div id="success-state" class="hidden py-10 text-center">
-        <p data-template-id="success-eyebrow" class="canva-text eyebrow" style="color: rgb(181, 138, 93); font-weight: 700; font-style: normal; font-size: 16px;">Pedido recebido</p>
-        <h3 data-template-id="success-title" class="canva-text serif mt-4 text-3xl" style="color: rgb(65, 54, 49); font-weight: 600; font-style: normal; font-size: 19px;">Obrigada por escolher a BYE.</h3>
-        <p data-template-id="success-text" class="canva-text mt-4 max-w-md mx-auto leading-7 text-[#6e5d55]" style="color: rgb(110, 93, 85); font-weight: 400; font-style: normal; font-size: 16px;">Seu pedido foi enviado com sucesso. Em breve, nossa equipe entrará em contato para confirmar o seu horário.</p><button id="new-booking" data-template-id="new-booking-button" type="button" class="canva-button mt-8 rounded-full px-7 py-3 font-bold" style="background: rgb(185, 121, 115); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Fazer novo agendamento</button>
-       </div>
-      </div>
-     </div>
-    </section>-->
+   
    </main>
    <footer class="w-full px-5 md:px-10 py-8 text-center">
     <p data-template-id="footer-text" class="canva-text text-xs tracking-wide text-[#806c61]" style="color: rgb(128, 108, 97); font-weight: 700; font-style: normal; font-size: 16px;">BELA Y ESSÊNCIA · ESTÉTICA &amp; COSMETOLOGIA</p>
