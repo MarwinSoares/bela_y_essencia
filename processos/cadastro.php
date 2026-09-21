@@ -1,20 +1,20 @@
 <?php
 require_once __DIR__ . "/conexao.php";
 
-function voltarCadastro(string $status, string $codigo): void
+function voltarCadastro(string $codigo): void
 {
-    header("Location: ../belayessencia/html/cadastro.html?$status=$codigo");
+    header("Location: ../belayessencia/html/cadastro.html?erro=" . urlencode($codigo));
     exit;
 }
 
-function irParaLoginComSucesso(): void
+function irParaLogin(): void
 {
     header("Location: ../belayessencia/html/login.html?sucesso=cadastro");
     exit;
 }
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    voltarCadastro("erro", "metodo");
+    voltarCadastro("metodo");
 }
 
 $nome = trim($_POST["fullName"] ?? "");
@@ -25,34 +25,36 @@ $confirmarSenha = $_POST["confirmPassword"] ?? "";
 $aceitouTermos = isset($_POST["terms"]);
 
 if ($nome === "" || $telefone === "" || $email === "" || $senha === "" || $confirmarSenha === "") {
-    voltarCadastro("erro", "campos");
+    voltarCadastro("campos");
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    voltarCadastro("erro", "email");
+    voltarCadastro("email");
 }
 
 if (strlen($senha) < 6) {
-    voltarCadastro("erro", "senha_curta");
+    voltarCadastro("senha_curta");
 }
 
 if ($senha !== $confirmarSenha) {
-    voltarCadastro("erro", "senhas");
+    voltarCadastro("senhas");
 }
 
 if (!$aceitouTermos) {
-    voltarCadastro("erro", "termos");
+    voltarCadastro("termos");
 }
 
 try {
     $consulta = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email = :email LIMIT 1");
-    $consulta->execute([":email" => $email]);
+    $consulta->execute([
+        ":email" => $email,
+    ]);
 
     if ($consulta->fetch()) {
-        voltarCadastro("erro", "email_existente");
+        voltarCadastro("email_existente");
     }
 
-    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+    $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
     $cadastro = $pdo->prepare(
         "INSERT INTO usuarios (nome, telefone, email, senha)
@@ -63,14 +65,14 @@ try {
         ":nome" => $nome,
         ":telefone" => $telefone,
         ":email" => $email,
-        ":senha" => $senhaHash,
+        ":senha" => $senhaCriptografada,
     ]);
 
-    irParaLoginComSucesso();
+    irParaLogin();
 } catch (PDOException $e) {
     if ($e->getCode() === "23000") {
-        voltarCadastro("erro", "email_existente");
+        voltarCadastro("email_existente");
     }
 
-    voltarCadastro("erro", "banco");
+    voltarCadastro("banco");
 }
