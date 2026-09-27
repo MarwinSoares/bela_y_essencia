@@ -26,6 +26,7 @@
         email: 'Informe um e-mail válido.',
         credenciais: 'E-mail ou senha incorretos.',
         inativo: 'Este cadastro está inativo. Fale com a equipe Bela Y Essência.',
+        sessao: 'Entre na sua conta para continuar.',
         banco: 'Não foi possível entrar agora. Tente novamente em instantes.',
       },
     },

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bela Y Essência | Meus agendamentos</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/agendamento.css">
+  <link rel="stylesheet" href="../css/meus-agendamentos.css">
+  <link rel="stylesheet" href="../css/conta-menu.css">
+</head>
+<body>
+  <div class="appointments-shell">
+    <header class="appointments-header">
+      <a href="index.html" class="brand-link" aria-label="Bela Y Essência - início">
+        <img src="../imagens/Logo.png" alt="Bela Y Essência">
+      </a>
+      <nav class="appointments-nav" aria-label="Navegação da área da cliente">
+        <a href="index.html">Início</a>
+        <a href="agendamento.html">Novo agendamento</a>
+        <div class="account-menu" data-account-menu></div>
+      </nav>
+    </header>
+
+    <main class="appointments-main">
+      <section class="appointments-hero">
+        <p class="eyebrow">Área da cliente</p>
+        <h1>Meus agendamentos</h1>
+        <p id="customer-summary">Carregando seus dados...</p>
+      </section>
+
+      <p id="page-message" class="page-message hidden" aria-live="polite"></p>
+
+      <section id="appointments-list" class="appointments-list" aria-live="polite"></section>
+
+      <template id="appointment-template">
+        <article class="appointment-card">
+          <div class="appointment-head">
+            <div>
+              <span class="status-pill"></span>
+              <h2 class="appointment-title"></h2>
+              <p class="appointment-meta"></p>
+            </div>
+            <strong class="appointment-price"></strong>
+          </div>
+
+          <form class="appointment-form">
+            <input type="hidden" name="id_agendamento">
+            <input type="hidden" name="acao" value="alterar">
+
+            <div class="form-grid">
+              <label>
+                <span>Procedimento</span>
+                <select name="id_servico" class="field-control" required></select>
+              </label>
+
+              <label>
+                <span>Data</span>
+                <input name="data" class="field-control" type="date" required>
+              </label>
+            </div>
+
+            <fieldset>
+              <legend>Horário</legend>
+              <input name="horario" type="hidden" required>
+              <div class="time-grid"></div>
+            </fieldset>
+
+            <div class="appointment-actions">
+              <button class="primary-action" type="submit">Salvar alteração</button>
+              <button class="secondary-action cancel-button" type="button">Cancelar agendamento</button>
+            </div>
+          </form>
+        </article>
+      </template>
+    </main>
+  </div>
+
+  <script src="../script/conta-menu.js"></script>
+  <script src="../script/meus-agendamentos.js"></script>
+</body>
+</html>

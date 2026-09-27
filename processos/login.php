@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/conexao.php";
+require_once __DIR__ . "/sessao.php";
 
 function voltarLogin(string $status, string $codigo): void
 {
@@ -40,7 +41,7 @@ try {
         voltarLogin("erro", "inativo");
     }
 
-    session_start();
+    iniciarSessao();
     session_regenerate_id(true);
 
     $_SESSION["usuario_id"] = $usuario["id_usuario"];

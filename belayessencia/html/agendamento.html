@@ -8,12 +8,13 @@
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&amp;family=Raleway:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/agendamento.css">
+  <link rel="stylesheet" href="../css/conta-menu.css">
  </head>
  <body data-template-id="__page-root" style="background: rgb(252, 250, 248);">
   <div class="app-shell">
    <header class="w-full px-5 py-5 sm:px-8 lg:px-12">
-    <div class="mx-auto flex max-w-6xl items-center justify-between border-b border-[#e9ded8] pb-5"><a href="index.html" class="inline-flex shrink-0 items-center no-underline" aria-label="Bela Y Essência - agendamento"> <img data-template-id="brand-logo" src="../imagens/Logo.png" alt="Bela Y Essência" class="block h-11 w-auto max-w-[150px] object-contain sm:h-14 sm:max-w-[210px]"> </a>
-     <p data-template-id="header-title" class="canva-text text-right text-xs font-semibold uppercase tracking-[0.16em] text-[#796c66] sm:text-sm" style="color: rgb(121, 108, 102); font-weight: 700; font-style: normal; font-size: 12px; letter-spacing: 0.12rem;">Agende seu horário</p>
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 border-b border-[#e9ded8] pb-5"><a href="index.html" class="inline-flex shrink-0 items-center no-underline" aria-label="Bela Y Essência - agendamento"> <img data-template-id="brand-logo" src="../imagens/Logo.png" alt="Bela Y Essência" class="block h-11 w-auto max-w-[150px] object-contain sm:h-14 sm:max-w-[210px]"> </a>
+     <div class="flex items-center justify-end gap-3"><p data-template-id="header-title" class="canva-text hidden text-right text-xs font-semibold uppercase tracking-[0.16em] text-[#796c66] sm:block sm:text-sm" style="color: rgb(121, 108, 102); font-weight: 700; font-style: normal; font-size: 12px; letter-spacing: 0.12rem;">Agende seu horário</p><div class="account-menu" data-account-menu></div></div>
     </div>
    </header>
    <main id="agendamento" class="w-full px-5 pb-12 pt-5 sm:px-8 sm:pb-16 lg:px-12">
@@ -28,9 +29,15 @@
       <div id="booking-view" class="arrival">
        <p data-template-id="eyebrow" class="canva-text mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#a16f60]" style="color: rgb(161, 111, 96); font-weight: 700; font-style: normal; font-size: 12px; letter-spacing: 0.15rem;">Atendimento personalizado</p>
        <h1 data-template-id="booking-title" class="canva-text display-font max-w-xl text-[2.35rem] leading-[1.03] text-[#3d3430] sm:text-[3rem]" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 32px;">Seu cuidado começa com um horário reservado para você.</h1>
-       <p data-template-id="booking-description" class="canva-text mt-5 max-w-xl leading-relaxed text-[#746762]" style="color: rgb(116, 103, 98); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.65;">Escolha o procedimento, a data e o melhor horário para sua rotina. Sua solicitação será recebida com todo carinho pela nossa equipe.</p>
+       <p data-template-id="booking-description" class="canva-text mt-5 max-w-xl leading-relaxed text-[#746762]" style="color: rgb(116, 103, 98); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.65;">Escolha o procedimento, a data e o melhor horário para sua rotina. O agendamento será vinculado à sua conta.</p>
+       <div id="customer-card" class="customer-card hidden-view" aria-live="polite">
+        <span>Agendando como</span>
+        <strong id="customer-name"></strong>
+        <small id="customer-contact"></small>
+       </div>
        <form id="booking-form" class="mt-9 space-y-6" action="../../processos/agendamento.php" method="post" novalidate="">
-        <div><label data-template-id="procedure-label" for="procedure" class="canva-text mb-2 block text-sm font-bold text-[#51453f]" style="color: rgb(81, 69, 63); font-weight: 700; font-style: normal; font-size: 14px;">Qual procedimento deseja realizar?</label> <select id="procedure" name="procedimento" class="field-control" required=""> <option data-template-id="procedure-placeholder" class="canva-text" value="" selected="" disabled="" style="color: rgb(117, 105, 101); font-weight: 400; font-style: normal; font-size: 16px;">Selecione um procedimento</option> <option data-template-id="procedure-botox" class="canva-text" value="Botox" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 16px;">Botox</option> <option data-template-id="procedure-fillers" class="canva-text" value="Preenchedores" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 16px;">Preenchedores</option> <option data-template-id="procedure-biostimulators" class="canva-text" value="Bioestimuladores" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 16px;">Bioestimuladores</option> <option data-template-id="procedure-peeling" class="canva-text" value="Peeling" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 16px;">Peeling</option> <option data-template-id="procedure-microneedling" class="canva-text" value="Microagulhamento" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 16px;">Microagulhamento</option> <option data-template-id="procedure-facial-cleansing" class="canva-text" value="Limpeza de pele" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 16px;">Limpeza de pele</option> <option data-template-id="procedure-hair-treatment" class="canva-text" value="Tratamento capilar" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 16px;">Tratamento capilar</option> <option data-template-id="procedure-enzymes" class="canva-text" value="Enzimas" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 16px;">Enzimas</option> <option data-template-id="procedure-drainage" class="canva-text" value="Drenagem" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 16px;">Drenagem</option> <option data-template-id="procedure-massage" class="canva-text" value="Massagem" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 16px;">Massagem</option> </select>
+        <div><label data-template-id="procedure-label" for="procedure" class="canva-text mb-2 block text-sm font-bold text-[#51453f]" style="color: rgb(81, 69, 63); font-weight: 700; font-style: normal; font-size: 14px;">Qual procedimento deseja realizar?</label> <select id="procedure" name="id_servico" class="field-control" required=""> <option class="canva-text" value="" selected="" disabled="">Carregando procedimentos...</option> </select>
+         <p id="service-details" class="service-details hidden-view"></p>
         </div>
         <div><label data-template-id="date-label" for="booking-date" class="canva-text mb-2 block text-sm font-bold text-[#51453f]" style="color: rgb(81, 69, 63); font-weight: 700; font-style: normal; font-size: 14px;">Escolha uma data</label> <input id="booking-date" name="data" class="field-control" type="date" required="">
         </div>
@@ -39,13 +46,7 @@
          </div>
         </fieldset>
         <input id="booking-time" name="horario" type="hidden">
-        <p data-template-id="availability-note" class="canva-text rounded-xl border border-[#eee2dc] bg-[#fcf6f3] px-4 py-3 text-sm leading-relaxed text-[#806d65]" style="background: rgb(252, 246, 243); color: rgb(128, 109, 101); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.5;">Os horários exibidos são exemplos para sua solicitação. A disponibilidade será confirmada pela clínica.</p>
-        <div class="grid gap-5 sm:grid-cols-2">
-         <div><label data-template-id="name-label" for="full-name" class="canva-text mb-2 block text-sm font-bold text-[#51453f]" style="color: rgb(81, 69, 63); font-weight: 700; font-style: normal; font-size: 14px;">Nome completo</label> <input id="full-name" name="nome" class="field-control" type="text" autocomplete="name" required="">
-         </div>
-         <div><label data-template-id="whatsapp-label" for="whatsapp" class="canva-text mb-2 block text-sm font-bold text-[#51453f]" style="color: rgb(81, 69, 63); font-weight: 700; font-style: normal; font-size: 14px;">WhatsApp</label> <input id="whatsapp" name="whatsapp" class="field-control" type="tel" inputmode="tel" autocomplete="tel" required="">
-         </div>
-        </div>
+        <p data-template-id="availability-note" class="canva-text rounded-xl border border-[#eee2dc] bg-[#fcf6f3] px-4 py-3 text-sm leading-relaxed text-[#806d65]" style="background: rgb(252, 246, 243); color: rgb(128, 109, 101); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.5;">Horários já agendados ficam indisponíveis automaticamente.</p>
         <p id="form-message" class="hidden text-sm font-semibold" aria-live="polite"></p><button id="submit-button" data-template-id="confirm-button" type="submit" class="canva-button primary-action flex w-full items-center justify-center gap-2 px-5" style="background: rgb(186, 135, 117); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Confirmar agendamento</button>
        </form>
       </div>
@@ -56,7 +57,7 @@
        <h2 data-template-id="success-title" class="canva-text display-font mt-3 text-[2.4rem] leading-tight text-[#3d3430]" style="color: rgb(61, 52, 48); font-weight: 400; font-style: normal; font-size: 24px;">Seu momento de cuidado está quase reservado.</h2>
        <div class="accent-rule"></div>
        <p id="confirmation-summary" class="mx-auto max-w-md text-base leading-7 text-[#6f625d]"></p>
-       <p data-template-id="success-note" class="canva-text mx-auto mt-5 max-w-md text-sm leading-relaxed text-[#8a7d76]" style="color: rgb(138, 125, 118); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.55;">A equipe Bela y Essência entrará em contato pelo WhatsApp para confirmar os detalhes do seu horário.</p><button id="new-booking" data-template-id="new-booking-button" type="button" class="canva-button secondary-action mt-8 w-full px-5 sm:w-auto" style="background: rgb(255, 253, 250); color: rgb(118, 90, 80); font-weight: 700; font-style: normal; font-size: 15px;">Agendar outro horário</button>
+       <p data-template-id="success-note" class="canva-text mx-auto mt-5 max-w-md text-sm leading-relaxed text-[#8a7d76]" style="color: rgb(138, 125, 118); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.55;">Seu agendamento já aparece na tabela de agendamentos vinculado ao seu usuário.</p><button id="new-booking" data-template-id="new-booking-button" type="button" class="canva-button secondary-action mt-8 w-full px-5 sm:w-auto" style="background: rgb(255, 253, 250); color: rgb(118, 90, 80); font-weight: 700; font-style: normal; font-size: 15px;">Agendar outro horário</button>
       </section>
      </div>
     </section>
@@ -67,6 +68,7 @@
     </div>
    </footer>
   </div>
+  <script src="../script/conta-menu.js"></script>
   <script src="../script/agendamento.js"></script>
  
 </body></html>
