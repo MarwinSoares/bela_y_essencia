@@ -30,6 +30,18 @@
         banco: 'Não foi possível entrar agora. Tente novamente em instantes.',
       },
     },
+    'admin-login': {
+      error: {
+        metodo: 'Envio inválido. Tente novamente pelo formulário.',
+        campos: 'Preencha e-mail e senha para entrar.',
+        email: 'Informe um e-mail válido.',
+        credenciais: 'E-mail ou senha incorretos.',
+        permissao: 'Este acesso é exclusivo para administradores.',
+        inativo: 'Este cadastro está inativo.',
+        sessao: 'Entre como administradora para continuar.',
+        banco: 'Não foi possível entrar agora. Tente novamente em instantes.',
+      },
+    },
   };
 
   function refreshIcons() {

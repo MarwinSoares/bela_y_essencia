@@ -112,3 +112,13 @@ INSERT INTO servicos (nome, descricao, duracao_minutos, valor, status)
 SELECT 'Massagem', 'Massagem relaxante ou modeladora conforme necessidade.', 60, 160.00, 'ativo'
 WHERE NOT EXISTS (SELECT 1 FROM servicos WHERE nome = 'Massagem');
 UPDATE servicos SET valor = 160.00, duracao_minutos = 60 WHERE nome = 'Massagem';
+
+INSERT INTO usuarios (nome, telefone, email, senha, tipo_usuario, status)
+SELECT
+    'Administrador Bela Y Essencia',
+    '(11) 00000-0000',
+    'admin@belayessencia.com',
+    '$2y$10$bvIdH1TDPLZ3lE0XqMojLeCSRgVPnd.W4d7gZ5t224l7tjoy6DmOa',
+    'admin',
+    'ativo'
+WHERE NOT EXISTS (SELECT 1 FROM usuarios WHERE email = 'admin@belayessencia.com');

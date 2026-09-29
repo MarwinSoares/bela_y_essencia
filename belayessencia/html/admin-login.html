@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bela Y Essência | Login</title>
+  <title>Bela Y Essência | Administração</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,33 +18,31 @@
         <img src="../imagens/Logo.png" alt="Bela Y Essência">
       </a>
       <nav class="auth-nav" aria-label="Navegação principal">
-        <a href="index.html">Início</a>
-        <a href="agendamento.html">Agendar</a>
-        <a href="admin-login.html">Admin</a>
-        <a class="nav-action" href="cadastro.html">Criar conta</a>
+        <a href="index.html">Site</a>
+        <a href="login.html">Área da cliente</a>
       </nav>
     </header>
 
     <main class="auth-main">
-      <section class="auth-layout" aria-labelledby="login-title">
+      <section class="auth-layout" aria-labelledby="admin-login-title">
         <div class="auth-visual">
           <img src="../imagens/auth-background.png" alt="Sala de estética elegante com maca, toalhas rosé e detalhes dourados">
           <div class="auth-visual-copy">
-            <p class="eyebrow">Área da cliente</p>
-            <h1 id="login-title">Bem-vinda de volta.</h1>
-            <p>Acesse sua conta para acompanhar agendamentos e manter seus dados sempre à mão.</p>
+            <p class="eyebrow">Administração</p>
+            <h1 id="admin-login-title">Gestão da agenda.</h1>
+            <p>Acesse a área da estética para acompanhar, reorganizar e cancelar horários agendados.</p>
           </div>
         </div>
 
         <div class="auth-panel">
-          <p class="eyebrow">Login</p>
-          <h2>Entre na sua conta</h2>
-          <p class="panel-note">Use o e-mail cadastrado para continuar.</p>
+          <p class="eyebrow">Login administrativo</p>
+          <h2>Entre como admin</h2>
+          <p class="panel-note">Use uma conta cadastrada como administradora.</p>
 
-          <form class="auth-form" action="../../processos/login.php" method="post" data-auth-form="login">
+          <form class="auth-form" action="../../processos/admin_login.php" method="post" data-auth-form="admin-login">
             <div class="field-group">
               <label for="email">E-mail</label>
-              <input id="email" name="email" class="field-control" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required>
+              <input id="email" name="email" class="field-control" type="email" autocomplete="email" placeholder="admin@belayessencia.com" required>
             </div>
 
             <div class="field-group">
@@ -57,18 +55,10 @@
               </div>
             </div>
 
-            <div class="form-row">
-              <label class="check-label" for="remember">
-                <input id="remember" name="remember" type="checkbox">
-                <span>Lembrar acesso</span>
-              </label>
-              <a href="cadastro.html">Primeiro acesso?</a>
-            </div>
-
             <p class="form-status" data-form-status aria-live="polite"></p>
 
             <button class="primary-action" type="submit">
-              <span>Entrar</span>
+              <span>Entrar no painel</span>
               <i data-lucide="arrow-right" aria-hidden="true"></i>
             </button>
           </form>

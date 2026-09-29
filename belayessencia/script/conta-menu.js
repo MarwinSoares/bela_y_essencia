@@ -64,6 +64,12 @@
     const panelId = `account-menu-panel-${index}`;
     const name = escapeHtml(user?.nome || 'Minha conta');
     const email = escapeHtml(user?.email || '');
+    const adminLink = user?.tipo === 'admin'
+      ? `<a class="account-menu__item" href="admin-agendamentos.html">
+          <i data-lucide="layout-dashboard" aria-hidden="true"></i>
+          <span>Administração</span>
+        </a>`
+      : '';
 
     container.innerHTML = `
       <button class="account-menu__trigger" type="button" aria-expanded="false" aria-controls="${panelId}">
@@ -76,6 +82,7 @@
           <strong>${name}</strong>
           <span>${email}</span>
         </div>
+        ${adminLink}
         <a class="account-menu__item" href="meus-agendamentos.html">
           <i data-lucide="calendar-check" aria-hidden="true"></i>
           <span>Meus agendamentos</span>

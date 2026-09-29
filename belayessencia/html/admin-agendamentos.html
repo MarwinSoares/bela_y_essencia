@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bela Y Essência | Painel administrativo</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/agendamento.css">
+  <link rel="stylesheet" href="../css/meus-agendamentos.css">
+  <link rel="stylesheet" href="../css/conta-menu.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+  <div class="appointments-shell admin-shell">
+    <header class="appointments-header">
+      <a href="index.html" class="brand-link" aria-label="Bela Y Essência - início">
+        <img src="../imagens/Logo.png" alt="Bela Y Essência">
+      </a>
+      <nav class="appointments-nav" aria-label="Navegação administrativa">
+        <a href="index.html">Site</a>
+        <a href="agendamento.html">Novo agendamento</a>
+        <div class="account-menu" data-account-menu></div>
+      </nav>
+    </header>
+
+    <main class="appointments-main">
+      <section class="appointments-hero admin-hero">
+        <p class="eyebrow">Administração</p>
+        <h1>Agenda da estética</h1>
+        <p id="admin-summary">Carregando agenda...</p>
+      </section>
+
+      <p id="admin-message" class="page-message hidden" aria-live="polite"></p>
+
+      <section class="admin-toolbar" aria-label="Filtros da agenda">
+        <label>
+          <span>Buscar cliente ou procedimento</span>
+          <input id="admin-search" class="field-control" type="search" placeholder="Nome, e-mail, telefone ou procedimento">
+        </label>
+
+        <label>
+          <span>Status</span>
+          <select id="admin-status" class="field-control">
+            <option value="">Todos</option>
+            <option value="agendado">Agendados</option>
+            <option value="confirmado">Confirmados</option>
+            <option value="concluido">Concluídos</option>
+            <option value="cancelado">Cancelados</option>
+          </select>
+        </label>
+      </section>
+
+      <section id="admin-appointments-list" class="appointments-list" aria-live="polite"></section>
+
+      <template id="admin-appointment-template">
+        <article class="appointment-card admin-appointment-card">
+          <div class="appointment-head">
+            <div>
+              <span class="status-pill"></span>
+              <h2 class="appointment-title"></h2>
+              <p class="appointment-meta"></p>
+              <p class="admin-client"></p>
+            </div>
+            <strong class="appointment-price"></strong>
+          </div>
+
+          <form class="appointment-form">
+            <input type="hidden" name="id_agendamento">
+            <input type="hidden" name="acao" value="alterar">
+
+            <div class="form-grid">
+              <label>
+                <span>Procedimento</span>
+                <select name="id_servico" class="field-control" required></select>
+              </label>
+
+              <label>
+                <span>Data</span>
+                <input name="data" class="field-control" type="date" required>
+              </label>
+            </div>
+
+            <fieldset>
+              <legend>Horário</legend>
+              <input name="horario" type="hidden" required>
+              <div class="time-grid"></div>
+            </fieldset>
+
+            <div class="appointment-actions">
+              <button class="primary-action" type="submit">Salvar alteração</button>
+              <button class="secondary-action cancel-button" type="button">Cancelar agendamento</button>
+            </div>
+          </form>
+        </article>
+      </template>
+    </main>
+  </div>
+
+  <script src="../script/conta-menu.js"></script>
+  <script src="../script/admin-agendamentos.js"></script>
+</body>
+</html>
