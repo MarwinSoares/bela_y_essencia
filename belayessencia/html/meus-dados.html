@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bela Y Essência | Meus dados</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/agendamento.css">
+  <link rel="stylesheet" href="../css/meus-agendamentos.css">
+  <link rel="stylesheet" href="../css/conta-menu.css">
+  <link rel="stylesheet" href="../css/meus-dados.css">
+</head>
+<body>
+  <div class="appointments-shell">
+    <header class="appointments-header">
+      <a href="index.html" class="brand-link" aria-label="Bela Y Essência - início">
+        <img src="../imagens/Logo.png" alt="Bela Y Essência">
+      </a>
+      <nav class="appointments-nav" aria-label="Navegação da área da cliente">
+        <a href="index.html">Início</a>
+        <a href="meus-agendamentos.html">Meus agendamentos</a>
+        <a href="agendamento.html">Novo agendamento</a>
+        <div class="account-menu" data-account-menu></div>
+      </nav>
+    </header>
+
+    <main class="appointments-main profile-main">
+      <section class="appointments-hero">
+        <p class="profile-eyebrow">Área da cliente</p>
+        <h1>Meus dados</h1>
+        <p id="profile-summary">Carregando seus dados...</p>
+      </section>
+
+      <p id="profile-message" class="page-message hidden" aria-live="polite"></p>
+
+      <section class="profile-panel">
+        <form id="profile-form" class="profile-form" action="../../processos/perfil_atualizar.php" method="post" enctype="multipart/form-data" novalidate>
+          <div class="profile-photo-block">
+            <span class="profile-avatar" id="profile-avatar" aria-hidden="true">
+              <img id="profile-photo" src="" alt="" hidden>
+              <span id="profile-initials">BE</span>
+            </span>
+
+            <label class="photo-picker" for="foto-perfil">
+              <i data-lucide="camera" aria-hidden="true"></i>
+              <span>Alterar foto</span>
+            </label>
+            <input id="foto-perfil" class="photo-input" name="foto_perfil" type="file" accept="image/jpeg,image/png,image/webp">
+            <p>JPG, PNG ou WEBP até 2 MB.</p>
+          </div>
+
+          <div class="profile-fields">
+            <label>
+              <span>Nome</span>
+              <input id="profile-name" name="nome" class="field-control" type="text" maxlength="150" autocomplete="name" required>
+            </label>
+
+            <label>
+              <span>E-mail</span>
+              <input id="profile-email" class="field-control readonly-field" type="email" readonly>
+            </label>
+
+            <label>
+              <span>Telefone</span>
+              <input id="profile-phone" name="telefone" class="field-control" type="tel" maxlength="20" autocomplete="tel" required>
+            </label>
+
+            <label>
+              <span>Localização</span>
+              <input id="profile-location" name="localizacao" class="field-control" type="text" maxlength="255" autocomplete="street-address">
+            </label>
+
+            <div class="profile-actions">
+              <button id="profile-submit" class="primary-action" type="submit">Salvar dados</button>
+              <a class="secondary-action" href="meus-agendamentos.html">Ver agendamentos</a>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="../script/conta-menu.js"></script>
+  <script src="../script/meus-dados.js"></script>
+</body>
+</html>

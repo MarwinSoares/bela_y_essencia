@@ -1,0 +1,158 @@
+.profile-main {
+  padding-bottom: 76px;
+}
+
+.profile-eyebrow {
+  margin: 0;
+  color: #b58a5d;
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.profile-panel {
+  margin-top: 30px;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #fffdfa;
+  box-shadow: 0 18px 46px rgba(76, 54, 46, .1);
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: minmax(220px, .36fr) minmax(0, .64fr);
+  gap: clamp(24px, 5vw, 52px);
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.profile-photo-block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.profile-photo-block p {
+  margin: 0;
+  max-width: 210px;
+  color: #756965;
+  font-size: .86rem;
+  line-height: 1.5;
+}
+
+.profile-avatar {
+  width: 144px;
+  height: 144px;
+  border: 1px solid #eadcd1;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #fff;
+  background: #7e8e80;
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  box-shadow: 0 20px 38px rgba(76, 54, 46, .16);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-picker {
+  min-height: 44px;
+  border: 1px solid rgba(186, 135, 117, .5);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 16px;
+  color: #765a50;
+  background: #fffdfa;
+  font-size: .9rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.photo-picker:hover {
+  background: #f8efeb;
+  transform: translateY(-1px);
+}
+
+.photo-picker svg {
+  width: 17px;
+  height: 17px;
+}
+
+.photo-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.profile-fields {
+  display: grid;
+  gap: 18px;
+}
+
+.profile-fields label {
+  display: grid;
+  gap: 8px;
+}
+
+.profile-fields label span {
+  color: #51453f;
+  font-size: .9rem;
+  font-weight: 800;
+}
+
+.readonly-field {
+  color: #756965;
+  background: #f6f0ec;
+}
+
+.profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+
+.profile-actions .primary-action,
+.profile-actions .secondary-action {
+  min-width: 170px;
+  padding: 0 18px;
+  text-decoration: none;
+}
+
+.profile-actions .secondary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  .profile-form {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo-block {
+    padding-top: 0;
+  }
+
+  .profile-actions .primary-action,
+  .profile-actions .secondary-action {
+    width: 100%;
+  }
+}
